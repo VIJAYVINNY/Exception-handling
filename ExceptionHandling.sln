@@ -1,25 +1,28 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31313.79
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionHandling", "ExceptionHandling\ExceptionHandling.csproj", "{F0A62AB5-B2CA-4B93-A5CB-A077E4D739E8}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F0A62AB5-B2CA-4B93-A5CB-A077E4D739E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F0A62AB5-B2CA-4B93-A5CB-A077E4D739E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F0A62AB5-B2CA-4B93-A5CB-A077E4D739E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F0A62AB5-B2CA-4B93-A5CB-A077E4D739E8}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {78BBECDE-815E-488A-B9B3-0F55BA7BADB9}
-	EndGlobalSection
-EndGlobal
+using System;
+
+namespace ExceptionHandling
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                Console.WriteLine("Enter the First Number:");
+                int i = int.Parse(Console.ReadLine());
+                Console.WriteLine("Enter the Second Number:");
+                int j = int.Parse(Console.ReadLine());
+                int k = i / j; Console.WriteLine("The value is:" + k);
+            }
+            catch(FormatException ex1)
+            {
+                Console.WriteLine(ex1.Message);
+            }
+            catch (DivideByZeroException ex2) { Console.WriteLine(ex2.Message); }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+           
+            Console.WriteLine("End of the program");
+
+        }
+    }
+}
